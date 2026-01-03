@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Join µLearn — Create Account</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 125vh;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #030614, #09020b 65%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* ===== VIGNETTE ===== */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.65) 100%);
+  z-index: 1;
+}
+
+/* ===== AMBIENT ===== */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,77,255,.35), transparent 70%);
+  filter: blur(22px);
+  opacity: .18;
+  animation: drift 28s ease-in-out infinite;
+}
+
+.orb.one { top: 10%; left: 8%; }
+.orb.two { bottom: 15%; right: 12%; animation-duration: 36s; }
+
+@keyframes drift {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+/* ===== PAGE WRAP ===== */
+.page-wrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ===== AUTH CARD ===== */
+.auth-wrapper {
+  padding: 42px 36px 38px;
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(124,77,255,.18),
+      rgba(0,0,0,.55)
+    );
+
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(124,77,255,.28);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.75),
+    inset 0 0 0 1px rgba(255,255,255,.04);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== LOGO ===== */
+.halo-hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.halo-hero img {
+  width: 130px;
+  display: block;
+  filter:
+    drop-shadow(0 0 14px rgba(124,77,255,.45))
+    drop-shadow(0 0 28px rgba(124,77,255,.25));
+}
+
+/* ===== HEADER ===== */
+.auth-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.auth-header h1 {
+  font-family: Orbitron;
+  font-size: 2.4rem;
+  color: #7C4DFF;
+  margin-bottom: 6px;
+}
+
+.auth-header p {
+  opacity: .8;
+}
+
+/* ===== FORM SHELL (PROMINENT BOX) ===== */
+.form-shell {
+  width: 100%;
+  padding: 22px;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(124,77,255,.28),
+      rgba(0,209,255,.12)
+    );
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 20px 50px rgba(124,77,255,.35);
+}
+
+/* ===== FORM ===== */
+.auth-form {
+  display: grid;
+  gap: 14px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.55);
+  color: #dfcaff;
+  font-size: 1rem;
+}
+
+.auth-form input::placeholder {
+  color: rgba(202,203,255,.55);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #7C4DFF;
+  box-shadow: 0 0 0 2px rgba(124,77,255,.25);
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.password-wrap {
+  position: relative;
+  flex: 1;
+}
+
+.password-wrap span {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: .6;
+}
+
+/* ===== BUTTON ===== */
+.primary-btn {
+  margin-top: 10px;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg,#7C4DFF,#00D1FF,#db4dff);
+  color: #020b06;
+  font-family: Orbitron;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(124,77,255,.45);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 60px rgba(124,77,255,.55);
+}
+
+/* ===== LEGAL ===== */
+.legal {
+  margin-top: 18px;
+  font-size: .95rem;
+  opacity: .9;
+}
+
+.legal label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.legal input {
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  accent-color: #7C4DFF;
+}
+
+.legal a {
+  color: #7C4DFF;
+  text-decoration: none;
+}
+
+.legal small {
+  display: block;
+  opacity: .65;
+  margin-top: 4px;
+}
+
+/* ===== SUPPORT ===== */
+.support,
+.signin {
+  text-align: center;
+  margin-top: 12px;
+  padding-top: 20px;
+
+  opacity: .85;
+}
+
+.support a,
+.signin a {
+  color: #7C4DFF;
+  text-decoration: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 520px) {
+  .row { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient">
+  <span class="orb one"></span>
+  <span class="orb two"></span>
+</div>
+
+<div class="page-wrap">
+
+  <div class="auth-wrapper">
+
+    <div class="halo-hero">
+      <img src="purplemu.png" alt="µLearn Logo">
+    </div>
+
+    <div class="auth-header">
+      <h1>Create an Account</h1>
+      <p>Please enter your information</p>
+    </div>
+
+    <div class="form-shell">
+      <form class="auth-form">
+        <input type="email" placeholder="Email ID *" required>
+
+        <div class="row">
+          <input type="text" placeholder="Full Name *" required>
+          <div class="password-wrap">
+            <input type="password" placeholder="Password *" required>
+            <span>👁</span>
+          </div>
+        </div>
+
+        <button class="primary-btn" type="submit">Register</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="legal">
+    <label>
+      <input type="checkbox" required>
+      <span>
+        I agree to the <a href="https://mulearn.org/termsandconditions">Terms & Conditions</a>
+        <small>By checking this box, you confirm you are 13 years or older.</small>
+      </span>
+    </label>
+  </div>
+
+  <p class="support">
+    Facing issues? <a href="https://chat.whatsapp.com/La3nY4AVQsR0ndrwk4wN7v">Join our Support Group</a>
+  </p>
+
+  <p class="signin">
+    Already have an account? <a href="https://app.mulearn.org/login">Sign In</a>
+  </p>
+
+</div>
+
+</body>
+</html>

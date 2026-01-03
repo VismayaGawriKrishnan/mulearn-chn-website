@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>µVerse – µLearn CHN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
+  <script>
+    /* STATS COUNTER - Fixed */
+    (function() {
+      const initStatsCounter = () => {
+        const statObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const h3 = entry.target.querySelector("h3");
+              if (!h3) return;
+              const target = +h3.getAttribute("data-target");
+              if (!target || h3.dataset.animated === 'true') return;
+              
+              h3.dataset.animated = 'true';
+              let count = 0;
+              const duration = 2000;
+              const steps = 60;
+              const increment = target / steps;
+              const stepTime = duration / steps;
+              
+              const updateCounter = () => {
+                count += increment;
+                if (count < target) {
+                  h3.textContent = Math.floor(count).toLocaleString() + "+";
+                  setTimeout(updateCounter, stepTime);
+                } else {
+                  h3.textContent = target.toLocaleString() + "+";
+                }
+              };
+              
+              updateCounter();
+              statObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+        
+        document.querySelectorAll(".stat-card").forEach(card => {
+          statObserver.observe(card);
+        });
+      };
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initStatsCounter);
+      } else {
+        initStatsCounter();
+      }
+    })();
+    
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("active");
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.15});
+
+reveals.forEach(el=>observer.observe(el));
+
+
+    </script>
+    
+</head>
+<body>
+<!-- ANIMATED NEON BACKGROUND -->
+<div class="neon-background">
+  <div class="neon-particles" id="neonParticles"></div>
+  <div class="neon-grid"></div>
+  <div class="gradient-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <!-- JOIN MULEARN BUTTON -->
+
+
+<div class="logo "> <a href="#home"><img src ="purplemu.png" alt="µLearn logo"></a> </div>
+  <button class="nav-toggle" aria-label="Toggle navigation">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <ul class ="nav-links ">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="join.html" class="join-btn">Join µLearn</a>
+    </li>
+  </ul>
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+
+    <div class="universe-container">
+      <div class="stars"></div>
+
+      <div class="hero-circle-bg">
+        <div class="circle-ring circle-ring-1"></div>
+        <div class="circle-ring circle-ring-2"></div>
+        <div class="circle-ring circle-ring-3"></div>
+        <div class="circle-glow"></div>
+      </div>
+    </div>
+
+    <div class="matrix-border"></div>
+
+    <h1 class="hero-title">
+      <span class="welcome-text fade-in-up">Welcome to the</span>
+      
+    </h1>
+<span class="muverse-text fade-in-up">µVerse</span>
+    <p class="college-name">College of Engineering Chengannur</p>
+
+  </div>
+
+  <div class="hero-particles"></div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="about glass-panel">
+  <div class="section-content">
+    <h2 class="section-heading">About Us</h2>
+    <p class="fade-in-up">
+    µLearn CHN is a dynamic community powered by GTech, dedicated to fostering professional and personal growth among its members. We achieve this through a unique blend of peer learning, expert mentorship, and hands-on innovation, transforming the initial spark of curiosity into tangible execution and real-world results.
+    Our community provides a collaborative platform where aspiring professionals can connect, learn from one another, and build innovative solutions. We believe in the power of practical application, moving beyond theoretical knowledge to practical skills that are vital in today's fast-paced tech industry.
+    </p>
+  </div>
+</section>
+
+<section id="about-offers" class="about-offers">
+  <div class="section-content">
+    <h2 class="section-heading">What µLearn offers</h2>
+    <p class="fade-in-up intro-text">
+    µLearn is a community-first, gamified, and peer-supported e-learning ecosystem that aims to bridge the gap between academic knowledge and industry-ready skills. It provides a platform for students and professionals to upskill through collaborative learning and hands-on experience.
+    </p>
+    <p class="fade-in-up key-offerings">Key offerings of µLearn include:</p>
+    <ul class="about-points fade-in-up">
+      <li><span class="bullet">◆</span><strong>Community & Mentorship:</strong> 60,000+ learners guided by industry experts.</li>
+      <li><span class="bullet">◆</span><strong>Learning Circles:</strong> Structured peer-driven skill paths.</li>
+      <li><span class="bullet">◆</span><strong>Hands-on Bootcamps:</strong> Real-world challenges, not theory.</li>
+      <li><span class="bullet">◆</span><strong>Karma System:</strong> Gamified growth with real rewards.</li>
+      <li><span class="bullet">◆</span><strong>Opportunities:</strong> Jobs, internships, and flagship programs like Launchpad Kerala.</li>
+    </ul>
+    <p class="fade-in-up closing-text">
+    Essentially, µLearn moves beyond traditional education by offering an inclusive and dynamic environment that helps individuals develop both technical and soft skills needed for a successful career in the modern tech industry.
+    </p>
+  </div>
+</section>
+
+
+<section id="gallery" class="memories-section">
+  <div class="memories-container">
+    <h2 class="memories-title fade-in-up">
+      <span class="title-letter">Memories</span>
+     
+    </h2>
+
+    <div class="memories-scatter-container" id="memoriesGrid">
+      <div class="memory-card-scatter" data-index="0">
+        <img src="mem1.webp" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="1">
+        <img src="mem2.webp" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="2">
+        <img src="mem3.webp" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="3">
+        <img src="mem4.webp" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="4">
+        <img src="mem5.webp" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="5">
+        <img src="mem6.webp" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="6">
+        <img src="mem7.webp" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="7">
+        <img src="mem8.jpeg" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="8">
+        <img src="mem9.jpeg" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="9">
+        <img src="mem10.jpeg" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="10">
+        <img src="mem11.jpeg" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="11">
+        <img src="mem12.jpeg" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="12">
+        <img src="mem13.jpeg" alt="Memory" loading="lazy">
+      </div>
+      <div class="memory-card-scatter" data-index="13">
+        <img src="mem14.jpeg" alt="Memory" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="events" class="events">
+    <h2 class="section-heading fade-in-up">Our Event Journey</h2>
+  
+    <div class="event-list">
+  
+      <div class="event-card">
+        <img class="event-img" src="images/makeme2.jpeg" alt="Make(Me)²">
+  
+        <div class="event-info">
+          <div class="event-date">
+            MAR<br><span>14–15</span>
+          </div>
+  
+          <div class="event-content">
+            <h3>Make(Me)²</h3>
+            <p>
+              A fun-filled meme-making competition organized as part of Women's Day,
+              where teams unleash their creativity to craft witty and engaging memes
+              on a given topic. 
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="event-card">
+        <img class="event-img" src="images/challenge.jpeg" alt="Change the Look">
+  
+        <div class="event-info">
+          <div class="event-date">
+            MAR<br><span>14–15</span>
+          </div>
+  
+          <div class="event-content">
+            <h3>Change the Look</h3>
+            <p>
+              A creative challenge introduced as a follow-up to the Introduction to
+              Figma workshop from the µQuest series. Students redesign a random
+              poster with their own creative touch.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="event-card">
+        <img class="event-img" src="images/figma.jpeg" alt="Introduction to Figma">
+  
+        <div class="event-info">
+          <div class="event-date">
+            MAR<br><span>5–6</span>
+          </div>
+  
+          <div class="event-content">
+            <h3>Introduction to Figma</h3>
+            <p>
+              A two-day session designed to familiarize students with Figma and its
+              essential tools, marking the launch of the µQuest series.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="event-card">
+        <img class="event-img" src="images/quest.jpeg" alt="µQUEST">
+  
+        <div class="event-info">
+          <div class="event-date">
+            MAR<br><span>5</span>
+          </div>
+  
+          <div class="event-content">
+            <h3>µQUEST</h3>
+            <p>
+              µQUEST is a workshop and challenge series guiding students through
+              Level 3 tasks on Discord, boosting skills and engagement.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <img class="event-img" src="DSA.jpeg" alt="µQUEST">
+  
+        <div class="event-info">
+          <div class="event-date">
+            AUG<br><span>4-13</span>
+          </div>
+  
+          <div class="event-content">
+            <h3>Build-a-Struct</h3>
+            <p>
+             Build-a-Struct is a a week-long workshop on Data Structures & Algorithms using C.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <img class="event-img" src="KF.jpeg" alt="µQUEST">
+  
+        <div class="event-info">
+          <div class="event-date">
+            JAN<br><span>29-30</span>
+          </div>
+  
+          <div class="event-content">
+            <h3>Karma Fest</h3>
+            <p>
+              Karma Fest is the ultimate 2-day challenge where one can compete, collaborate, and conquer while earning Karma points and supercharging his/her skills.
+            </p>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+
+
+<section class="stats-section">
+  <h2>Our Statistics</h2>
+
+  <div class="stats-grid">
+    <div class="stat-card"><h3 data-target="25">0+</h3><p>Events Conducted</p></div>
+    <div class="stat-card"><h3 data-target="152">0+</h3><p>Participants</p></div>
+    <div class="stat-card"><h3 data-target="429947">0+</h3><p>Karma Mined</p></div>
+    <div class="stat-card"><h3 data-target="3">0+</h3><p>Interest Groups</p></div>
+    <div class="stat-meta">
+      <img src="MULEARN-Photoroom.png" alt="µLearn logo" class="rank-logo">
+      <p class="rank-text">Rank: <span class="rank-number">8</span></p>
+    </div>
+  </div>
+</section>
+  
+  <section class="learning-circles-ui">
+    <div class="lc-container">
+  
+      <!-- Illustration -->
+      <div class="lc-visual">
+        <img src="X.png" alt="Explore Learning Circles">
+      </div>
+  
+      <!-- Content -->
+      <div class="lc-content">
+        <h2>Explore Learning Circles</h2>
+  
+        <p>
+          An informal mechanism for bringing together learners who are interested in the same topic from across different fields and disciplines.
+          A fantastic way to spend a small amount of time learning about new things with a group of people with same interests!
+        </p>
+  
+        <a href="404.html" class="lc-btn">
+  Create / Join Learning Circles
+</a>
+          
+       
+      </div>
+  
+    </div>
+  </section>
+  
+  
+
+<!-- TEAM -->
+<section id="team" class="team-section glass-panel">
+    <h2 class="section-title fade-in-up">Our Team</h2>
+  
+    <div class="team-grid">
+  
+      <div class="team-card">
+        <div class="avatar">
+          <img src="images/member1.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Geetha S</h3>
+        <p class="member-role">Lead Enabler</p>
+      </div>
+  
+      <div class="team-card">
+        <div class="avatar">
+          <img src="images/member2.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Shijina S</h3>
+        <p class="member-role">
+            Campus Lead</p>
+      </div>
+  
+      <div class="team-card">
+        <div class="avatar">
+          <img src="images/member3.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Nithin Jayakumar</h3>
+        <p class="member-role">
+            Campus Co-Lead</p>
+      </div>
+  
+    
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member4.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Anna Jaison</h3>
+        <p class="member-role">
+            Creative Lead</p>
+      </div>
+  
+  
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member5.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Nanma Maryam Soence</h3>
+        <p class="member-role">
+            Operation Lead</p>
+      </div>
+  
+  
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member6.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Amanul Farhan</h3>
+        <p class="member-role">
+            Technical Lead</p>
+      </div>
+  
+  
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member7.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Kasinathan C G</h3>
+        <p class="member-role">
+            Media Lead</p>
+      </div>
+  
+  
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member8.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Hanin C K</h3>
+        <p class="member-role">
+            Operation Team</p>
+      </div>
+  
+    
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member16.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Sanjeev S Nair</h3>
+        <p class="member-role">
+            IG Lead-UI/UX</p>
+      </div>
+  
+   
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member9.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Gourinandhan R</h3>
+        <p class="member-role">
+            Operation Team</p>
+      </div>
+  
+   
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member10.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Govind J S</h3>
+        <p class="member-role">
+            Designer</p>
+      </div>
+  
+    
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member11.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Juhaina Jaleel</h3>
+        <p class="member-role">
+            Designer</p>
+      </div>
+  
+   
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member12.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Megha B Chandran</h3>
+        <p class="member-role">
+            Content Team</p>
+      </div>
+  
+   
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member13.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Albin Thomas</h3>
+        <p class="member-role">
+            Content Team</p>
+      </div>
+  
+    
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member14.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Pavithra A</h3>
+        <p class="member-role">
+            Media Team</p>
+      </div>
+  
+   
+
+    <div class="team-card">
+        <div class="avatar">
+          <img src="images/member15.jpeg" alt="Member Name">
+        </div>
+        <h3 class="member-name">Viswaprabha</h3>
+        <p class="member-role">
+            IG Lead-IOT
+            </p>
+      </div>
+  
+   
+
+
+  </section>
+  
+
+<!-- CONNECT -->
+<section id="contact" class="connect">
+  <h2 class="section-heading fade-in-up">Connect With Us</h2>
+  <div class="connect-box">
+    <p>Join the µLearn CHN community.</p>
+    <div class="buttons">
+      <a href="https://discord.gg/wp8s5fuRE" target="_blank" class="button-link"><button>Join Discord</button></a>
+      <button class="alt">Join WhatsApp</button>
+    </div>
+  </div>
+</section>
+<footer class="mulearn-footer">
+
+  <div class="footer-content">
+
+    <!-- Logo -->
+    <div class="footer-logo">
+      <img src="µLearn.png" alt="µLearn Logo">
+    </div>
+
+    <!-- Email -->
+    <p class="footer-email">
+      Reach us at
+      <a href="mailto:gtechmulearncec@gmail.com">
+        gtechmulearncec@gmail.com
+      </a>
+    </p>
+
+    <!-- Nav Links -->
+    <div class="footer-nav">
+      <a href="https://mulearn.org/">µLearn</a>
+      <a href="#events">Events</a>
+      <a href="#gallery">Gallery</a>
+      <a href="https://online.fliphtml5.com/egsqr/tlgc/#p=1">Branding</a>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="footer-socials">
+      <a href="https://www.linkedin.com/company/gtech-mulearn-cec/" target="_blank">
+        <i class="fab fa-linkedin-in"></i> LinkedIn
+      </a>
+      <a href="https://www.instagram.com/mulearn.chn/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://twitter.com/mulearn" target="_blank">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+      <a href="https://www.facebook.com/mulearnfoundation/" target="_blank">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-line"></div>
+
+  <p class="footer-copy">
+    Copyright © 2025. All Rights Reserved. µLearn Foundation.
+  </p>
+
+</footer>
+</footer>
+
+
+<script src="script.js"></script>
+
+      
+
+
+<script>
+// Neon Particles Background
+(function() {
+  const particleContainer = document.getElementById('neonParticles');
+  if (!particleContainer) return;
+  
+  const particleCount = 50;
+  const colors = ['#7C4DFF', '#00D1FF', '#FF00FF'];
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'neon-particle';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.animationDelay = Math.random() * 5 + 's';
+    particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+    particleContainer.appendChild(particle);
+  }
+})();
+
+// Enhanced Scroll Animations for All Sections
+(function() {
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: '0px 0px -100px 0px'
+  };
+  
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all sections and elements
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.add('scroll-section');
+    scrollObserver.observe(section);
+  });
+  
+  document.querySelectorAll('.fade-in-up, .section-heading, .section-content, .event-card, .stat-card, .team-card, .event-list, .stats-grid, .team-grid').forEach(el => {
+    scrollObserver.observe(el);
+  });
+})();
+
+// Memories Shattered Glass Scatter Animation - RELIABLE VERSION
+(function() {
+  const container = document.getElementById('memoriesGrid');
+  if (!container) return;
+  
+  const items = container.querySelectorAll('.memory-card-scatter');
+  const itemCount = items.length;
+  let finalPositions = []; // Store positions globally
+  let isAnimating = false;
+  
+  // Function to check if position overlaps with existing positions
+  function isPositionValid(x, y, width, height, positions) {
+    const minDistance = 120;
+    for (const pos of positions) {
+      const distance = Math.sqrt(
+        Math.pow(x - pos.x, 2) + Math.pow(y - pos.y, 2)
+      );
+      if (distance < minDistance) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  // Function to find valid position (improved grid fallback)
+  function findValidPosition(containerWidth, containerHeight, cardWidth, cardHeight, positions) {
+    for (let attempt = 0; attempt < 100; attempt++) {
+      const x = Math.random() * Math.max(10, containerWidth - cardWidth - 10);
+      const y = Math.random() * Math.max(10, containerHeight - cardHeight - 10);
+      
+      if (isPositionValid(x, y, cardWidth, cardHeight, positions)) {
+        positions.push({ x, y });
+        return { x, y };
+      }
+    }
+    // Fallback: grid layout
+    const gridCols = 4;
+    const col = positions.length % gridCols;
+    const row = Math.floor(positions.length / gridCols);
+    const x = (col / gridCols) * (containerWidth - cardWidth - 20) + 10;
+    const y = 50 + (row * (containerHeight / gridCols));
+    positions.push({ x, y });
+    return { x, y };
+  }
+  
+  // Generate final positions once (calculated during first load)
+  function calculateFinalPositions() {
+    finalPositions = [];
+    const containerWidth = container.offsetWidth || 1200;
+    const containerHeight = container.offsetHeight || 600;
+    
+    items.forEach((item) => {
+      const img = item.querySelector('img');
+      const imgWidth = img?.naturalWidth || img?.width || 150;
+      const imgHeight = img?.naturalHeight || img?.height || 150;
+      const aspectRatio = imgHeight / imgWidth;
+      const cardWidth = 140 + Math.random() * 60; // 140-200px
+      const cardHeight = cardWidth * aspectRatio;
+      
+      item.style.width = cardWidth + 'px';
+      item.style.height = cardHeight + 'px';
+      
+      const finalPos = findValidPosition(containerWidth, containerHeight, cardWidth, cardHeight, finalPositions);
+      const rotation = (Math.random() - 0.5) * 30; // -15 to 15 degrees
+      
+      item.dataset.finalX = finalPos.x;
+      item.dataset.finalY = finalPos.y;
+      item.dataset.finalRotation = rotation;
+    });
+  }
+  
+  // Trigger scatter animation
+  function triggerScatter() {
+    if (isAnimating) return;
+    isAnimating = true;
+    
+    items.forEach((item, index) => {
+      const finalX = parseFloat(item.dataset.finalX);
+      const finalY = parseFloat(item.dataset.finalY);
+      const finalRotation = parseFloat(item.dataset.finalRotation);
+      
+      if (!isNaN(finalX) && !isNaN(finalY)) {
+        // Reset immediately (no transition)
+        item.style.transition = 'none';
+        const centerX = container.offsetWidth / 2;
+        const cardWidth = parseFloat(item.style.width) || 150;
+        item.style.left = (centerX - cardWidth / 2) + 'px';
+        item.style.top = (50 + index * 6) + 'px';
+        item.style.transform = 'rotate(0deg)';
+        item.style.opacity = '0.8';
+        
+        // Force reflow to apply reset
+        void item.offsetHeight;
+        
+        // Animate scatter
+        setTimeout(() => {
+          item.style.transition = 'all 0.9s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          item.style.left = finalX + 'px';
+          item.style.top = finalY + 'px';
+          item.style.transform = `rotate(${finalRotation}deg)`;
+          item.style.opacity = '1';
+        }, 20 + index * 25);
+      }
+    });
+    
+    // Mark animation as complete after all items animate
+    setTimeout(() => {
+      isAnimating = false;
+    }, 800);
+  }
+  
+  // Initialize on images load
+  function initMemories() {
+    calculateFinalPositions();
+    // Trigger scatter immediately if container is visible
+    const rect = container.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      triggerScatter();
+    }
+  }
+  
+  // Wait for images to load, then initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMemories);
+  } else {
+    initMemories();
+  }
+  
+  // Set up observer for repeatable scatter on scroll
+  const section = document.getElementById('gallery');
+  if (section) {
+    const scatterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          triggerScatter();
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    scatterObserver.observe(section);
+  }
+})();
+
+// Hero fluid text animation
+document.addEventListener('DOMContentLoaded', () => {
+  const heroLetters = document.querySelectorAll('.hero-letter');
+  heroLetters.forEach((letter, index) => {
+    // Animation delay is already set in CSS, just ensure they animate
+    letter.style.willChange = 'transform, opacity';
+  });
+  
+  // Title letter animation for memories
+  const titleLetters = document.querySelectorAll('.title-letter');
+  titleLetters.forEach((letter, index) => {
+    letter.style.animationDelay = `${index * 0.1}s`;
+    letter.classList.add('animate');
+  });
+});
+
+// Footer reveal animation on scroll
+(function() {
+  const footer = document.querySelector('.mulearn-footer');
+  if (!footer) return;
+  
+  const footerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      } else {
+        entry.target.classList.remove('revealed');
+      }
+    });
+  }, { threshold: 0.15 });
+  
+  footerObserver.observe(footer);
+})();
+
+// Animate section headings and text on scroll
+(function() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const headingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+      }
+    });
+  }, observerOptions);
+  
+  // Observe all section headings and paragraphs
+  document.querySelectorAll('h2, h3, section p, .section-heading, .fade-in-up').forEach(el => {
+    headingObserver.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
