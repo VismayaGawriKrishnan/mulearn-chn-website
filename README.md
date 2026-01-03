@@ -54,46 +54,47 @@ Gradients are used sparingly to avoid visual fatigue.
 No frameworks. No dependencies. No excuses.
 
 ---
+## 📁 Project Structure
 
-## 📂 Project Structure
-
-├── .vscode/ # VS Code workspace settings
-├── images/ # Image assets (if any sub-assets are grouped here)
+```text
+.
+├── .vscode/                     # VS Code workspace settings
+├── images/                      # Image assets directory
 │
-├── 404.html # Custom 404 error page
-├── 404.css # Styles for 404 page
-├── 404.js # Scripts for 404 page
+├── 404.html                     # Custom 404 error page
+├── 404.css                      # Styles for 404 page
+├── 404.js                       # Scripts for 404 page
 │
-├── index.html # Main landing page
-├── join.html # Join / registration page
+├── index.html                   # Main landing page
+├── join.html                    # Join / registration page
 │
-├── style.css # Global styles
-├── script.js # Global JavaScript
-├── bg.js # Background animations / effects
+├── style.css                    # Global stylesheet
+├── script.js                    # Global JavaScript logic
+├── bg.js                        # Background animations / effects
 │
-├── README.md # Project documentation
+├── README.md                    # Project documentation
 │
-├── assets (root images)
-│ ├── DSA.jpeg
-│ ├── KF.jpeg
-│ ├── MULEARN-Photoroom.png
-│ ├── purplemu.png
-│ ├── X.png
-│ ├── μLearn.png
-│ ├── mem1.webp
-│ ├── mem2.webp
-│ ├── mem3.webp
-│ ├── mem4.webp
-│ ├── mem5.webp
-│ ├── mem6.webp
-│ ├── mem7.webp
-│ ├── mem8.jpeg
-│ ├── mem9.jpeg
-│ ├── mem10.jpeg
-│ ├── mem11.jpeg
-│ ├── mem12.jpeg
-│ ├── mem13.jpeg
-│ └── mem14.jpeg
+├── DSA.jpeg
+├── KF.jpeg
+├── MULEARN-Photoroom.png
+├── purplemu.png
+├── X.png
+├── μLearn.png
+│
+├── mem1.webp
+├── mem2.webp
+├── mem3.webp
+├── mem4.webp
+├── mem5.webp
+├── mem6.webp
+├── mem7.webp
+├── mem8.jpeg
+├── mem9.jpeg
+├── mem10.jpeg
+├── mem11.jpeg
+├── mem12.jpeg
+├── mem13.jpeg
+└── mem14.jpeg
 
 
 
@@ -127,4 +128,5 @@ No broken layouts. No horizontal scroll disasters.
 1. Clone the repository
    ```bash
    git clone https://github.com/VismayaGawriKrishnan/mulearn-chn-website.git
+
 
