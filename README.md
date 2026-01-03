@@ -57,25 +57,45 @@ No frameworks. No dependencies. No excuses.
 
 ## 📂 Project Structure
 
-mulearn-chn-website/
+├── .vscode/ # VS Code workspace settings
+├── images/ # Image assets (if any sub-assets are grouped here)
 │
-├── index.html
-├── assets/
-│ ├── images/
-│ ├── icons/
-│ └── fonts/
+├── 404.html # Custom 404 error page
+├── 404.css # Styles for 404 page
+├── 404.js # Scripts for 404 page
 │
-├── css/
-│ ├── style.css
-│ ├── animations.css
-│ └── responsive.css
+├── index.html # Main landing page
+├── join.html # Join / registration page
 │
-├── js/
-│ ├── main.js
-│ └── interactions.js
+├── style.css # Global styles
+├── script.js # Global JavaScript
+├── bg.js # Background animations / effects
 │
-└── README.md
----
+├── README.md # Project documentation
+│
+├── assets (root images)
+│ ├── DSA.jpeg
+│ ├── KF.jpeg
+│ ├── MULEARN-Photoroom.png
+│ ├── purplemu.png
+│ ├── X.png
+│ ├── μLearn.png
+│ ├── mem1.webp
+│ ├── mem2.webp
+│ ├── mem3.webp
+│ ├── mem4.webp
+│ ├── mem5.webp
+│ ├── mem6.webp
+│ ├── mem7.webp
+│ ├── mem8.jpeg
+│ ├── mem9.jpeg
+│ ├── mem10.jpeg
+│ ├── mem11.jpeg
+│ ├── mem12.jpeg
+│ ├── mem13.jpeg
+│ └── mem14.jpeg
+
+
 
 ## ✨ Features
 
@@ -106,4 +126,5 @@ No broken layouts. No horizontal scroll disasters.
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/vismayagawrikrishnan/mulearn-chn-website.git
+   git clone https://github.com/VismayaGawriKrishnan/mulearn-chn-website.git
+
